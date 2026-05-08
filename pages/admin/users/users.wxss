@@ -1,0 +1,42 @@
+.admin-page {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding: 24rpx;
+}
+
+.user-item {
+  background: white;
+  border-radius: 14rpx;
+  padding: 18rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+}
+
+.avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  color: #1f2b4a;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.meta,
+.openid {
+  color: #666;
+  font-size: 18rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

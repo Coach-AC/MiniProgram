@@ -1,0 +1,27 @@
+.analytics-page {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding: 24rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx;
+}
+
+.metric {
+  background: white;
+  border-radius: 14rpx;
+  padding: 28rpx;
+  text-align: center;
+}
+
+.number {
+  color: #e66a2c;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.label {
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 20rpx;
+}

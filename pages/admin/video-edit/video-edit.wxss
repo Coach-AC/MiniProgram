@@ -1,0 +1,44 @@
+.edit-page {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding: 24rpx;
+}
+
+.field {
+  background: white;
+  border-radius: 12rpx;
+  padding: 18rpx;
+  margin-bottom: 16rpx;
+}
+
+.label {
+  color: #1f2b4a;
+  font-size: 20rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+input,
+textarea {
+  width: 100%;
+  font-size: 22rpx;
+}
+
+textarea {
+  min-height: 120rpx;
+}
+
+.switch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 12rpx;
+  padding: 18rpx;
+  margin-bottom: 20rpx;
+}
+
+.save-btn {
+  background: #e66a2c;
+  color: white;
+}

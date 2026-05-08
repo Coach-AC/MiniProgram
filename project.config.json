@@ -1,0 +1,47 @@
+{
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "uglifyFileName": false,
+    "enhance": true,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerPlugins": false,
+    "minifyWXML": true
+  },
+  "compileType": "miniprogram",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "suffix",
+        "value": ".mp4"
+      },
+      {
+        "type": "file",
+        "value": "pages/videos/Ball Handling Drills Between The Legs Progression with Coach Mason.mp4"
+      },
+      {
+        "type": "file",
+        "value": "pages/videos/Byron Scott Dr. Dish Shooting Drill Elbow Conditioning Shooting.mp4"
+      },
+      {
+        "type": "file",
+        "value": "pages/videos/One Minute 3-Point Shooting Drill.mp4"
+      },
+      {
+        "type": "file",
+        "value": "pages/videos/Throw Shooting Drills.mp4"
+      }
+    ],
+    "include": []
+  },
+  "appid": "wx4fddbc00a6e50525",
+  "editorSetting": {}
+}

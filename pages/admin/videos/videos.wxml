@@ -1,0 +1,13 @@
+<view class="admin-page">
+  <button class="add-btn" bindtap="addVideo">Add Video</button>
+
+  <view class="video-item" wx:for="{{videos}}" wx:key="_id">
+    <view class="video-title">{{item.title}}</view>
+    <view class="video-desc">{{item.description}}</view>
+    <view class="video-meta">{{item.difficulty}} · {{item.isActive ? 'Active' : 'Hidden'}}</view>
+    <view class="actions">
+      <button size="mini" data-id="{{item._id}}" bindtap="editVideo">Edit</button>
+      <button size="mini" data-id="{{item._id}}" bindtap="deleteVideo">Hide</button>
+    </view>
+  </view>
+</view>

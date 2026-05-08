@@ -1,0 +1,57 @@
+<!--rankings.wxml-->
+<view class="rankings-container">
+  
+  <!-- Header -->
+  <view class="rankings-header">
+    <view class="header-title">Leaderboard</view>
+    <view class="header-subtitle">See how you rank against other players</view>
+  </view>
+
+  <!-- User Stats Card -->
+  <view class="user-stats-card">
+    <view class="stat-item">
+      <view class="stat-label">Your Rank</view>
+      <view class="stat-value">{{userRank}}</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-label">Your Score</view>
+      <view class="stat-value">{{userScore}}</view>
+    </view>
+  </view>
+
+  <!-- Rankings List -->
+  <view class="rankings-list">
+    <view wx:for="{{rankings}}" 
+          wx:key="rank" 
+          class="ranking-item {{item.rank === 1 ? 'gold' : item.rank === 2 ? 'silver' : item.rank === 3 ? 'bronze' : ''}}">
+      
+      <!-- Rank Badge -->
+      <view class="rank-badge">
+        <text wx:if="{{item.rank === 1}}">🥇</text>
+        <text wx:elif="{{item.rank === 2}}">🥈</text>
+        <text wx:elif="{{item.rank === 3}}">🥉</text>
+        <text wx:else>{{item.rank}}</text>
+      </view>
+
+      <!-- Player Info -->
+      <view class="player-info">
+        <view class="player-header">
+          <text class="player-avatar">{{item.avatar}}</text>
+          <view class="player-details">
+            <view class="player-name">{{item.name}}</view>
+            <view class="player-level">{{item.level}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- Score -->
+      <view class="player-score">
+        <view class="score-value">{{item.score}}</view>
+        <view class="score-label">pts</view>
+      </view>
+
+    </view>
+  </view>
+
+</view>

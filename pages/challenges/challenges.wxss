@@ -1,0 +1,164 @@
+.challenges-container {
+  background: #f5f6fa;
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+
+.challenges-header {
+  background: linear-gradient(135deg, #e66a2c 0%, #f68b3c 100%);
+  color: white;
+  padding: 40rpx 30rpx;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.header-subtitle {
+  font-size: 22rpx;
+  opacity: 0.9;
+}
+
+.progress-summary {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  margin: 20rpx 30rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.progress-item {
+  text-align: center;
+  flex: 1;
+}
+
+.progress-number {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #e66a2c;
+  margin-bottom: 8rpx;
+}
+
+.progress-label {
+  font-size: 18rpx;
+  color: #999;
+}
+
+.challenges-list {
+  padding: 0 30rpx;
+}
+
+.challenge-item {
+  background: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: flex-start;
+  gap: 15rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4rpx solid transparent;
+}
+
+.challenge-item:active {
+  transform: translateY(-4rpx);
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.12);
+}
+
+.challenge-item.completed {
+  opacity: 0.7;
+  border-left-color: #2ecc71;
+}
+
+.challenge-icon {
+  font-size: 40rpx;
+  flex-shrink: 0;
+  margin-top: 5rpx;
+}
+
+.challenge-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8rpx;
+  gap: 10rpx;
+}
+
+.challenge-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #1a2744;
+  flex: 1;
+}
+
+.challenge-badges {
+  display: flex;
+  gap: 8rpx;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.difficulty-badge {
+  font-size: 16rpx;
+  font-weight: 600;
+  padding: 4rpx 10rpx;
+  border-radius: 12rpx;
+  white-space: nowrap;
+}
+
+.difficulty-badge.Beginner {
+  background: #e8f5ed;
+  color: #2d7d46;
+}
+
+.difficulty-badge.Intermediate {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.difficulty-badge.Advanced {
+  background: #fee2e2;
+  color: #c53030;
+}
+
+.reward-badge {
+  background: #e8f5e9;
+  color: #2ecc71;
+  font-size: 16rpx;
+  font-weight: 600;
+  padding: 4rpx 10rpx;
+  border-radius: 12rpx;
+}
+
+.completed-badge {
+  background: #c8e6c9;
+  color: #2ecc71;
+  font-size: 16rpx;
+  font-weight: 600;
+  padding: 4rpx 10rpx;
+  border-radius: 12rpx;
+}
+
+.challenge-description {
+  font-size: 20rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.challenge-arrow {
+  font-size: 28rpx;
+  color: #ccc;
+  flex-shrink: 0;
+  margin-top: 5rpx;
+}

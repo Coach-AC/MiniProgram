@@ -1,0 +1,178 @@
+.container {
+  background: #f2f3f7;
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  display: block;
+}
+
+/* HERO */
+.hero {
+  background: #25345a;
+  padding: 40rpx 30rpx;
+  color: white;
+  text-align: center;
+  margin: 0 30rpx;
+}
+
+.hero-title {
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.highlight {
+  color: #f68b3c;
+}
+
+.hero-sub {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  opacity: 0.8;
+}
+
+/* GOALS */
+.goals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin: 28rpx 30rpx 18rpx;
+}
+
+.goal {
+  background: #ffffff;
+  min-height: 118rpx;
+  padding: 22rpx 16rpx;
+  border-radius: 16rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+/* PHASE */
+.phase-row {
+  display: flex;
+  gap: 20rpx;
+  margin: 0 30rpx 22rpx;
+}
+
+.phase-btn {
+  flex: 1;
+  background: #ddd;
+  min-height: 92rpx;
+  padding: 18rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phase-btn.active {
+  background: #e66a2c;
+  color: white;
+}
+
+.plan-layer-bar {
+  margin: 0 30rpx 18rpx;
+  display: flex;
+  align-items: center;
+}
+
+.return-btn {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  background: #ffffff;
+  color: #1f2b4a;
+  font-size: 46rpx;
+  line-height: 58rpx;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.layer-title {
+  margin-left: 18rpx;
+  color: #1f2b4a;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+/* WEEK BUTTONS */
+.week-list {
+  margin: 0 30rpx 24rpx;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16rpx;
+}
+
+.week-btn {
+  background: #ddd;
+  padding: 24rpx 0;
+  border-radius: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.week-btn.active {
+  background: #1f2b4a;
+  color: white;
+}
+
+/* CONTENT CARD */
+.content-card {
+  background: white;
+  margin: 0 30rpx;
+  border-radius: 20rpx;
+  padding: 25rpx;
+}
+
+.week-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.week-rationale {
+  font-size: 22rpx;
+  margin-bottom: 20rpx;
+  color: #555;
+}
+
+.segment {
+  margin-top: 20rpx;
+}
+
+.segment-header {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.exercise {
+  background: #f5f6fa;
+  padding: 15rpx;
+  border-radius: 15rpx;
+  margin-bottom: 10rpx;
+}
+
+.ex-name {
+  font-weight: bold;
+}
+
+.ex-detail {
+  font-size: 20rpx;
+  color: #555;
+}
+
+.ex-sets {
+  font-size: 20rpx;
+  color: #e66a2c;
+}

@@ -1,0 +1,13 @@
+<view class="admin-page">
+  <view class="user-item" wx:for="{{users}}" wx:key="_id">
+    <image class="avatar" src="{{item.avatarUrl || '/images/logo.png'}}" mode="aspectFill"></image>
+    <view class="info">
+      <view class="name">{{item.nickName || 'Basketball Player'}}</view>
+      <view class="meta">{{item.role}} · {{item.status}}</view>
+      <view class="openid">{{item.openid}}</view>
+    </view>
+    <button size="mini" data-user="{{item}}" bindtap="toggleStatus">
+      {{item.status === 'blocked' ? 'Unblock' : 'Block'}}
+    </button>
+  </view>
+</view>

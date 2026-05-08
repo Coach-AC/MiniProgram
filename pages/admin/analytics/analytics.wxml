@@ -1,0 +1,18 @@
+<view class="analytics-page" wx:if="{{summary}}">
+  <view class="metric">
+    <view class="number">{{summary.totalUsers}}</view>
+    <view class="label">Total Users</view>
+  </view>
+  <view class="metric">
+    <view class="number">{{summary.activeVideos}}</view>
+    <view class="label">Active Videos</view>
+  </view>
+  <view class="metric">
+    <view class="number">{{summary.challengeCompletions}}</view>
+    <view class="label">Challenge Completions</view>
+  </view>
+  <view class="metric">
+    <view class="number">{{summary.totalPoints}}</view>
+    <view class="label">Points Awarded</view>
+  </view>
+</view>

@@ -1,0 +1,64 @@
+.admin-page {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding: 30rpx;
+}
+
+.admin-header {
+  background: #1f2b4a;
+  color: white;
+  border-radius: 16rpx;
+  padding: 28rpx;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.subtitle {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  opacity: 0.8;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rpx;
+  margin: 24rpx 0;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 14rpx;
+  padding: 24rpx;
+  text-align: center;
+}
+
+.number {
+  color: #e66a2c;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.label {
+  margin-top: 8rpx;
+  color: #666;
+  font-size: 20rpx;
+}
+
+.admin-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.admin-menu button {
+  background: #e66a2c;
+  color: white;
+}
+
+.admin-menu .secondary {
+  background: #1f2b4a;
+}

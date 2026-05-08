@@ -1,0 +1,209 @@
+.detail-container {
+  background: #f5f6fa;
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+
+.detail-header {
+  position: relative;
+  background: linear-gradient(135deg, #e66a2c 0%, #f68b3c 100%);
+  padding: 40rpx 30rpx 30rpx;
+  text-align: center;
+  color: white;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+  font-size: 60rpx;
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.info-card {
+  background: white;
+  margin: 20rpx 30rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 22rpx;
+  color: #666;
+  font-weight: 600;
+}
+
+.difficulty-badge {
+  font-size: 18rpx;
+  font-weight: 600;
+  padding: 6rpx 14rpx;
+  border-radius: 12rpx;
+}
+
+.difficulty-badge.Beginner {
+  background: #e8f5ed;
+  color: #2d7d46;
+}
+
+.difficulty-badge.Intermediate {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.difficulty-badge.Advanced {
+  background: #fee2e2;
+  color: #c53030;
+}
+
+.reward-text {
+  font-size: 22rpx;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.description-section {
+  margin: 30rpx;
+  background: white;
+  padding: 25rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #1a2744;
+  margin-bottom: 15rpx;
+}
+
+.description {
+  font-size: 22rpx;
+  color: #555;
+  line-height: 1.8;
+}
+
+.video-section {
+  margin: 30rpx;
+  background: white;
+  padding: 25rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.detail-video {
+  width: 100%;
+  height: 350rpx;
+  border-radius: 20rpx;
+  margin-top: 15rpx;
+  display: block;
+}
+
+.completion-section {
+  margin: 30rpx;
+}
+
+.completed-badge {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  border-radius: 20rpx;
+  padding: 25rpx;
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+  box-shadow: 0 4rpx 12rpx rgba(46, 204, 113, 0.2);
+}
+
+.badge-icon {
+  font-size: 50rpx;
+}
+
+.badge-content {
+  flex: 1;
+}
+
+.badge-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #2ecc71;
+  margin-bottom: 8rpx;
+}
+
+.badge-time {
+  font-size: 18rpx;
+  color: #27ae60;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15rpx;
+  margin: 30rpx;
+}
+
+.btn {
+  flex: 1;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  border: none;
+  font-size: 24rpx;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #e66a2c;
+  color: white;
+}
+
+.btn-primary:active {
+  background: #d45a1c;
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn-secondary:active {
+  background: #e0e0e0;
+  transform: scale(0.98);
+}
+
+.back-link {
+  text-align: center;
+  padding: 20rpx;
+  color: #e66a2c;
+  font-size: 22rpx;
+  font-weight: 600;
+}

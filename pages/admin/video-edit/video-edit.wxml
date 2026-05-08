@@ -1,0 +1,31 @@
+<view class="edit-page">
+  <view class="field">
+    <view class="label">Title</view>
+    <input value="{{video.title}}" data-field="title" bindinput="onInput" />
+  </view>
+  <view class="field">
+    <view class="label">Description</view>
+    <textarea value="{{video.description}}" data-field="description" bindinput="onInput" />
+  </view>
+  <view class="field">
+    <view class="label">Video URL</view>
+    <textarea value="{{video.url}}" data-field="url" bindinput="onInput" />
+  </view>
+  <view class="field">
+    <view class="label">Thumbnail URL</view>
+    <input value="{{video.thumbnailUrl}}" data-field="thumbnailUrl" bindinput="onInput" />
+  </view>
+  <view class="field">
+    <view class="label">Challenge ID</view>
+    <input value="{{video.challengeId}}" data-field="challengeId" bindinput="onInput" />
+  </view>
+  <view class="field">
+    <view class="label">Sort Order</view>
+    <input type="number" value="{{video.sortOrder}}" data-field="sortOrder" bindinput="onInput" />
+  </view>
+  <view class="switch-row">
+    <text>Active</text>
+    <switch checked="{{video.isActive}}" bindchange="onActiveChange" />
+  </view>
+  <button class="save-btn" bindtap="saveVideo">Save Video</button>
+</view>

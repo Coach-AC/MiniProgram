@@ -1,0 +1,46 @@
+<!--videos.wxml-->
+<view class="videos-container">
+  
+  <!-- Header -->
+  <view class="videos-header">
+    <view class="header-title">Training Videos</view>
+    <view class="header-subtitle">Learn basketball skills from professional drills</view>
+  </view>
+
+  <!-- Videos List -->
+  <view class="videos-list">
+    <view wx:for="{{videos}}" 
+          wx:key="id" 
+          class="video-card"
+          data-video="{{item}}"
+          bindtap="playVideo">
+      
+      <!-- Thumbnail -->
+      <view class="video-thumbnail">
+        <image src="{{item.thumbnail}}" mode="aspectFill"></image>
+        <view class="video-duration">{{item.duration}}</view>
+        <view class="play-icon">▶</view>
+      </view>
+
+      <!-- Video Info -->
+      <view class="video-card-info">
+        <view class="video-card-title">{{item.title}}</view>
+        <view class="video-card-description">{{item.description}}</view>
+        
+        <!-- Meta Info -->
+        <view class="video-meta">
+          <view class="meta-item">
+            <text class="meta-label">Duration:</text>
+            <text class="meta-value">{{item.duration}}</text>
+          </view>
+          <view class="meta-item">
+            <text class="meta-label">Level:</text>
+            <text class="difficulty-badge {{item.difficulty}}">{{item.difficulty}}</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>

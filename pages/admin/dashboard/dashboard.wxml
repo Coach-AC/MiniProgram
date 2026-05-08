@@ -1,0 +1,32 @@
+<view class="admin-page">
+  <view class="admin-header">
+    <view class="title">Admin Dashboard</view>
+    <view class="subtitle">Manage AC Sports content and users</view>
+  </view>
+
+  <view class="summary-grid" wx:if="{{summary}}">
+    <view class="summary-card">
+      <view class="number">{{summary.totalUsers}}</view>
+      <view class="label">Users</view>
+    </view>
+    <view class="summary-card">
+      <view class="number">{{summary.activeVideos}}</view>
+      <view class="label">Videos</view>
+    </view>
+    <view class="summary-card">
+      <view class="number">{{summary.challengeCompletions}}</view>
+      <view class="label">Completions</view>
+    </view>
+    <view class="summary-card">
+      <view class="number">{{summary.totalPoints}}</view>
+      <view class="label">Points</view>
+    </view>
+  </view>
+
+  <view class="admin-menu">
+    <button bindtap="goVideos">Video Management</button>
+    <button bindtap="goUsers">User List</button>
+    <button bindtap="goAnalytics">Analytics</button>
+    <button class="secondary" bindtap="seedDefaults">Seed Default Data</button>
+  </view>
+</view>

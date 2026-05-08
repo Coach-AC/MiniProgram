@@ -1,0 +1,56 @@
+<!--challenges.wxml-->
+<view class="challenges-container">
+  
+  <!-- Header -->
+  <view class="challenges-header">
+    <view class="header-title">Basketball Challenges</view>
+    <view class="header-subtitle">Complete advanced challenges to earn rewards</view>
+  </view>
+
+  <!-- Progress Summary -->
+  <view class="progress-summary">
+    <view class="progress-item">
+      <view class="progress-number">{{completedCount}}</view>
+      <view class="progress-label">Completed</view>
+    </view>
+    <view class="progress-item">
+      <view class="progress-number">{{challenges.length}}</view>
+      <view class="progress-label">Total</view>
+    </view>
+    <view class="progress-item">
+      <view class="progress-number">{{totalPoints}}</view>
+      <view class="progress-label">Points</view>
+    </view>
+  </view>
+
+  <!-- Challenges List -->
+  <view class="challenges-list">
+    <view wx:for="{{challenges}}" 
+          wx:key="id" 
+          class="challenge-item {{item.completed ? 'completed' : ''}}"
+          data-challenge="{{item}}"
+          bindtap="takeChallenge">
+
+      <!-- Left Icon -->
+      <view class="challenge-icon">{{item.icon}}</view>
+
+      <!-- Main Content -->
+      <view class="challenge-content">
+        <view class="challenge-header">
+          <text class="challenge-title">{{item.title}}</text>
+          <view class="challenge-badges">
+            <text class="difficulty-badge {{item.difficulty}}">{{item.difficulty}}</text>
+            <text class="reward-badge" wx:if="{{!item.completed}}">+{{item.reward}} pts</text>
+            <text class="completed-badge" wx:if="{{item.completed}}">✓ Done</text>
+          </view>
+        </view>
+        <text class="challenge-description">{{item.description}}</text>
+      </view>
+
+      <!-- Right Arrow -->
+      <view class="challenge-arrow">→</view>
+
+    </view>
+  </view>
+
+</view>

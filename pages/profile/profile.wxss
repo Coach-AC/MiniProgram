@@ -1,0 +1,227 @@
+.profile-container {
+  background: #f5f6fa;
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #e66a2c 0%, #f68b3c 100%);
+  padding: 40rpx 30rpx 80rpx;
+  position: relative;
+}
+
+.profile-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 1;
+  margin: -40rpx 0 0 0;
+}
+
+.profile-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 4rpx solid #e66a2c;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1a2744;
+  margin-bottom: 4rpx;
+}
+
+.profile-status {
+  font-size: 18rpx;
+  color: #999;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10rpx;
+}
+
+.action-btn {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  background: #f5f6fa;
+  border: none;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15rpx;
+  padding: 30rpx;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 25rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+
+.stat-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #e66a2c;
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 18rpx;
+  color: #999;
+}
+
+.achievements-section {
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1a2744;
+  margin-bottom: 20rpx;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15rpx;
+}
+
+.achievement-badge {
+  background: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  text-align: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2rpx solid transparent;
+}
+
+.achievement-badge.unlocked {
+  border-color: #e66a2c;
+  background: linear-gradient(135deg, rgba(230, 106, 44, 0.05) 0%, white 100%);
+}
+
+.achievement-badge.locked {
+  opacity: 0.5;
+}
+
+.achievement-icon {
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+
+.achievement-name {
+  font-size: 20rpx;
+  font-weight: bold;
+  color: #1a2744;
+  margin-bottom: 6rpx;
+}
+
+.achievement-desc {
+  font-size: 16rpx;
+  color: #999;
+  line-height: 1.4;
+}
+
+.profile-actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  padding: 0 30rpx;
+}
+
+.cloud-warning {
+  background: #fff3e0;
+  color: #a65200;
+  border-radius: 12rpx;
+  padding: 18rpx;
+  font-size: 20rpx;
+  line-height: 1.5;
+}
+
+.profile-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-radius: 12rpx;
+  padding: 18rpx;
+  font-size: 20rpx;
+  line-height: 1.5;
+}
+
+.openid-line {
+  color: #666;
+  font-size: 18rpx;
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.action-button {
+  padding: 20rpx;
+  border-radius: 20rpx;
+  border: none;
+  font-size: 24rpx;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.action-button.primary {
+  background: #e66a2c;
+  color: white;
+}
+
+.action-button.admin {
+  background: #1f2b4a;
+  color: white;
+}
+
+.action-button.primary:active {
+  background: #d45a1c;
+  transform: scale(0.98);
+}
+
+.action-button.secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.action-button.secondary:active {
+  background: #e0e0e0;
+  transform: scale(0.98);
+}

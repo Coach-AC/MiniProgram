@@ -1,0 +1,38 @@
+<view class="video-player-container">
+  
+  <!-- Video Player -->
+  <view class="player-wrapper">
+    <video 
+      class="video-element"
+      src="{{videoUrl}}"
+      controls="true"
+      autoplay="false"
+      object-fit="contain"
+      show-center-play-btn="true">
+    </video>
+  </view>
+
+  <!-- Video Info -->
+  <view class="video-info" wx:if="{{videoTitle}}">
+    <view class="video-title">{{videoTitle}}</view>
+    <view class="video-description" wx:if="{{videoDescription}}">{{videoDescription}}</view>
+  </view>
+
+  <!-- Action Buttons -->
+  <view class="action-buttons">
+    <button class="btn btn-primary" open-type="share">
+      <text class="btn-icon">📤</text>
+      <text>Share</text>
+    </button>
+    <button class="btn btn-secondary" bindtap="downloadVideo">
+      <text class="btn-icon">⬇️</text>
+      <text>Download</text>
+    </button>
+  </view>
+
+  <!-- Back Button -->
+  <view class="back-button" bindtap="goBack">
+    <text>← Back to Videos</text>
+  </view>
+
+</view>

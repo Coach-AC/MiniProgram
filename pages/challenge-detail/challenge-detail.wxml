@@ -1,0 +1,77 @@
+<view class="detail-container" wx:if="{{challenge}}">
+
+  <!-- Header Section -->
+  <view class="detail-header">
+    <view class="header-background"></view>
+    <view class="header-content">
+      <text class="icon">{{challenge.icon}}</text>
+      <text class="title">{{challenge.title}}</text>
+    </view>
+  </view>
+
+  <!-- Challenge Info Card -->
+  <view class="info-card">
+    <view class="info-row">
+      <text class="info-label">Difficulty:</text>
+      <text class="difficulty-badge {{challenge.difficulty}}">{{challenge.difficulty}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">Reward:</text>
+      <text class="reward-text">+{{challenge.reward}} Points</text>
+    </view>
+  </view>
+
+  <!-- Description -->
+  <view class="description-section">
+    <view class="section-title">Challenge Description</view>
+    <view class="description">
+      {{challenge.description}}
+    </view>
+  </view>
+
+  <!-- Video Section -->
+  <view class="video-section">
+    <view class="section-title">Training Video</view>
+    <video 
+      class="detail-video"
+      src="{{challenge.video}}"
+      controls="true"
+      object-fit="cover"
+      show-center-play-btn="true">
+    </video>
+  </view>
+
+  <!-- Completion Status -->
+  <view class="completion-section" wx:if="{{completed}}">
+    <view class="completed-badge">
+      <text class="badge-icon">🎉</text>
+      <view class="badge-content">
+        <view class="badge-title">Completed!</view>
+        <view class="badge-time" wx:if="{{completionTime}}">{{completionTime}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Action Buttons -->
+  <view class="action-buttons">
+    <button 
+      class="btn btn-primary"
+      wx:if="{{!completed}}"
+      bindtap="markComplete">
+      ✅ Mark as Complete
+    </button>
+    
+    <button 
+      class="btn btn-secondary"
+      wx:if="{{completed}}"
+      open-type="share">
+      📤 Share Achievement
+    </button>
+  </view>
+
+  <!-- Back Button -->
+  <view class="back-link" bindtap="goBack">
+    ← Back to Challenges
+  </view>
+
+</view>

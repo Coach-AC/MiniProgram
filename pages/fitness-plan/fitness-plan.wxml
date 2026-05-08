@@ -1,0 +1,78 @@
+<view class="container">
+
+  <!-- HERO -->
+  <view class="hero">
+    <view class="hero-title">
+      8–WEEK <text class="highlight">ATHLETE</text> PLAN
+    </view>
+    <view class="hero-sub">
+      3×/week · 25–30 min · Performance Development
+    </view>
+  </view>
+
+  <!-- GOALS -->
+  <view class="goals-grid">
+    <view class="goal">🎯 Core Stability</view>
+    <view class="goal">⚡ Coordination</view>
+    <view class="goal">🔀 Agility</view>
+    <view class="goal">💥 Power</view>
+  </view>
+
+  <!-- PHASE SELECTOR -->
+  <view class="phase-row">
+    <view class="phase-btn {{phase==1?'active':''}}"
+          data-phase="1"
+          bindtap="showPhase">
+      Phase 1: Foundation (Wk 1–4)
+    </view>
+    <view class="phase-btn {{phase==2?'active':''}}"
+          data-phase="2"
+          bindtap="showPhase">
+      Phase 2: Development (Wk 5–8)
+    </view>
+  </view>
+
+  <view class="plan-layer-bar" wx:if="{{phase}}">
+    <view class="return-btn" bindtap="returnToPhases">‹</view>
+    <view class="layer-title">Phase {{phase}} Weekly Plan</view>
+  </view>
+
+  <!-- WEEK SELECTOR -->
+  <view class="week-list" wx:if="{{phase}}">
+    <view wx:for="{{weekTabs}}" wx:key="index"
+          class="week-btn {{item==currentWeek?'active':''}}"
+          data-week="{{item}}"
+          bindtap="showWeek">
+      W{{item}}
+    </view>
+  </view>
+
+  <!-- WORKOUT CONTENT -->
+  <view class="content-card" wx:if="{{currentWeek && weekData[currentWeek]}}">
+    <view class="week-title">
+      {{weekData[currentWeek].theme}}
+    </view>
+
+    <view class="week-rationale">
+      {{weekData[currentWeek].rationale}}
+    </view>
+
+    <block wx:for="{{weekData[currentWeek].segments}}" wx:key="label">
+      <view class="segment">
+        <view class="segment-header">
+          <text>{{item.label}}</text>
+          <text>{{item.time}}</text>
+        </view>
+
+        <block wx:for="{{item.exercises}}" wx:key="n">
+          <view class="exercise">
+            <view class="ex-name">{{item.n}}</view>
+            <view class="ex-detail">{{item.detail}}</view>
+            <view class="ex-sets">{{item.sets}}</view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+
+</view>

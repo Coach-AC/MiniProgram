@@ -1,0 +1,81 @@
+<!--profile.wxml-->
+<view class="profile-container">
+  
+  <!-- Profile Header -->
+  <view class="profile-header">
+    <view class="profile-background"></view>
+    <view class="profile-card">
+      <image class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="profile-info">
+        <view class="profile-name">{{userInfo.nickName}}</view>
+        <view class="profile-status">{{profileStatusText}}</view>
+      </view>
+      <view class="profile-actions">
+        <button class="action-btn" bindtap="editProfile">✏️</button>
+        <button class="action-btn" open-type="share">📤</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- Stats Grid -->
+  <view class="stats-grid">
+    <view class="stat-card">
+      <view class="stat-icon">🎯</view>
+      <view class="stat-value">{{stats.challengesCompleted}}</view>
+      <view class="stat-label">Challenges</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-icon">⭐</view>
+      <view class="stat-value">{{stats.totalPoints}}</view>
+      <view class="stat-label">Points</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-icon">🏅</view>
+      <view class="stat-value">#{{stats.currentRank}}</view>
+      <view class="stat-label">Rank</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-icon">🔥</view>
+      <view class="stat-value">{{stats.trainingStreak}}</view>
+      <view class="stat-label">Streak</view>
+    </view>
+  </view>
+
+  <!-- Achievements Section -->
+  <view class="achievements-section">
+    <view class="section-title">Achievements</view>
+    
+    <view class="achievements-grid">
+      <view wx:for="{{achievements}}" 
+            wx:key="id"
+            class="achievement-badge {{item.className}}">
+        <view class="achievement-icon">{{item.icon}}</view>
+        <view class="achievement-name">{{item.title}}</view>
+        <view class="achievement-desc">{{item.description}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Action Buttons -->
+  <view class="profile-actions-section">
+    <view class="profile-error" wx:if="{{pageError}}">
+      {{pageError}}
+    </view>
+    <view class="cloud-warning" wx:if="{{!cloudReady}}">
+      Cloud Base is not configured yet. Add your environment ID to enable login sync.
+    </view>
+    <view class="openid-line" wx:if="{{openid}}">
+      OpenID: {{openid}}
+    </view>
+    <button class="action-button primary" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile">
+      📱 Login / Update Profile
+    </button>
+    <button class="action-button admin" wx:if="{{isAdmin}}" bindtap="goToAdmin">
+      Admin Dashboard
+    </button>
+    <button class="action-button secondary" open-type="share">
+      📤 Share Profile
+    </button>
+  </view>
+
+</view>
