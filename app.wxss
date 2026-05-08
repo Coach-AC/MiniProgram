@@ -1,0 +1,109 @@
+/**app.wxss**/
+
+page {
+  background: #f5f6fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Text Styles */
+text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* Button Styles */
+button {
+  font-size: 28rpx;
+  border-radius: 12rpx;
+  padding: 16rpx 20rpx;
+  border: none;
+  background: #e66a2c;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+button:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* Image Styles */
+image {
+  display: block;
+}
+
+/* View Styles */
+view {
+  box-sizing: border-box;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gap-10 {
+  gap: 10rpx;
+}
+
+.gap-20 {
+  gap: 20rpx;
+}
+
+.mt-20 {
+  margin-top: 20rpx;
+}
+
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
+.p-20 {
+  padding: 20rpx;
+}
+
+.rounded {
+  border-radius: 12rpx;
+}
+
+.shadow {
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.shadow-lg {
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+}

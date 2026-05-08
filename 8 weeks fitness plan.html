@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>8-Week Fitness Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --orange: #E8621A;
+  --orange-light: #F5914A;
+  --orange-pale: #FEF0E7;
+  --navy: #1A2744;
+  --navy-mid: #2D3F6B;
+  --slate: #4A5568;
+  --muted: #718096;
+  --border: rgba(26,39,68,0.12);
+  --bg: #F7F8FC;
+  --white: #ffffff;
+  --green: #2D7D46;
+  --green-pale: #E8F5ED;
+  --amber: #B45309;
+  --amber-pale: #FEF3C7;
+  --red: #C53030;
+  --red-pale: #FEE2E2;
+  --purple: #553C9A;
+  --purple-pale: #EDE9FE;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg);
+  color: var(--navy);
+  min-height: 100vh;
+}
+
+.hero {
+  background: var(--navy);
+  padding: 28px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 30px solid rgba(232,98,26,0.15);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: 60px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  border: 20px solid rgba(232,98,26,0.1);
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.hero h1 span { color: var(--orange-light); }
+.hero-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.phase-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.phase-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s;
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.5px;
+}
+.phase-pill.p1 { background: rgba(232,98,26,0.15); color: var(--orange-light); border-color: rgba(232,98,26,0.3); }
+.phase-pill.p2 { background: rgba(45,125,70,0.15); color: #4ADE80; border-color: rgba(45,125,70,0.3); }
+.phase-pill.active { color: white !important; }
+.phase-pill.p1.active { background: var(--orange); border-color: var(--orange); }
+.phase-pill.p2.active { background: var(--green); border-color: var(--green); }
+
+.goals-strip {
+  display: flex;
+  gap: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.goal-item {
+  flex: 1;
+  min-width: 90px;
+  padding: 12px 10px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.goal-item:last-child { border-right: none; }
+.goal-icon {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.goal-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main { padding: 16px; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+}
+.section-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--navy);
+}
+
+.week-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+}
+.week-tab {
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--slate);
+  transition: all 0.2s;
+  text-align: center;
+  min-width: 52px;
+}
+.week-tab.active {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+}
+.week-tab.phase2 { border-color: rgba(45,125,70,0.3); color: var(--green); }
+.week-tab.phase2.active { background: var(--green); color: white; border-color: var(--green); }
+
+.week-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.week-card-header {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.week-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--orange);
+}
+.week-theme {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-left: 10px;
+}
+.week-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--orange-pale);
+  color: var(--orange);
+}
+.week-badge.green { background: var(--green-pale); color: var(--green); }
+
+.rationale {
+  padding: 10px 16px;
+  background: var(--orange-pale);
+  border-bottom: 1px solid rgba(232,98,26,0.15);
+  font-size: 12.5px;
+  color: var(--orange);
+  line-height: 1.5;
+}
+.rationale.green {
+  background: var(--green-pale);
+  color: var(--green);
+  border-color: rgba(45,125,70,0.15);
+}
+
+.segment {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.segment:last-child { border-bottom: none; }
+.segment-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.seg-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+.seg-warm { background: #FEF3C7; color: #92400E; }
+.seg-core { background: #EDE9FE; color: #553C9A; }
+.seg-agility { background: #DBEAFE; color: #1E40AF; }
+.seg-power { background: #FEE2E2; color: #991B1B; }
+.seg-cool { background: #D1FAE5; color: #065F46; }
+.seg-time {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.exercise-list { display: flex; flex-direction: column; gap: 8px; }
+.exercise-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover { border-color: var(--orange); }
+.ex-num {
+  width: 22px; height: 22px;
+  background: var(--navy);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ex-body { flex: 1; }
+.ex-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.ex-detail {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.ex-sets {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange);
+  white-space: nowrap;
+  align-self: center;
+}
+.ex-link {
+  font-size: 11px;
+  color: #1E40AF;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 3px;
+  margin-top: 3px;
+}
+.ex-link:hover { text-decoration: underline; }
+
+.progression-bar {
+  display: flex;
+  gap: 3px;
+  margin: 14px 16px;
+}
+.prog-seg {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.prog-seg.done { background: var(--orange); }
+.prog-seg.done.green { background: var(--green); }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+.info-card-icon { font-size: 20px; margin-bottom: 6px; }
+.info-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.info-card p { font-size: 12.5px; color: var(--slate); line-height: 1.5; }
+
+.sequence-vis {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.seq-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.seq-flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+}
+.seq-block {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 80px;
+}
+.seq-bar {
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 4px;
+}
+.seq-min {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.seq-arrow {
+  width: 16px;
+  flex-shrink: 0;
+  text-align: center;
+  color: var(--border);
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+.equipment-note {
+  background: var(--navy);
+  color: rgba(255,255,255,0.8);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.equipment-note strong { color: var(--orange-light); }
+
+.tab-bar {
+  display: flex;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  transition: color 0.2s;
+  border-top: 2px solid transparent;
+}
+.tab-btn.active {
+  color: var(--orange);
+  border-top-color: var(--orange);
+}
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+.science-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.science-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.science-card p { font-size: 13px; color: var(--slate); line-height: 1.6; }
+
+.yt-row { display: flex; align-items: center; gap: 10px; padding: 10px; background: #FEF2F2; border-radius: 8px; margin-top: 6px; }
+.yt-icon { color: #DC2626; font-size: 18px; flex-shrink: 0; }
+.yt-info { flex: 1; }
+.yt-info a { font-size: 12.5px; color: #1E40AF; text-decoration: none; font-weight: 600; }
+.yt-info a:hover { text-decoration: underline; }
+.yt-info p { font-size: 11px; color: var(--muted); }
+
+</style>
+
+<div class="hero">
+  <div class="hero-badge">Panthers DBL · Off Season</div>
+  <h1>8-WEEK <span>ATHLETE</span><br>FITNESS PLAN</h1>
+  <div class="hero-sub">3×/week · 25–30 min · Bodyweight & Youth-Appropriate Equipment</div>
+  <div class="phase-pills">
+    <div class="phase-pill p1 active" onclick="showPhase(1)">Phase 1: Foundation (Wk 1–4)</div>
+    <div class="phase-pill p2" onclick="showPhase(2)">Phase 2: Development (Wk 5–8)</div>
+  </div>
+</div>
+
+<div class="goals-strip">
+  <div class="goal-item"><div class="goal-icon">🎯</div><div class="goal-label">Core Stability</div></div>
+  <div class="goal-item"><div class="goal-icon">⚡</div><div class="goal-label">Coordination</div></div>
+  <div class="goal-item"><div class="goal-icon">🔀</div><div class="goal-label">Agility</div></div>
+  <div class="goal-item"><div class="goal-icon">💥</div><div class="goal-label">Power</div></div>
+</div>
+
+<div id="panel-plan" class="panel active">
+<div class="main">
+
+<!-- Session Flow Visual -->
+<div class="sequence-vis">
+  <div class="seq-title">Session Structure (Every Training Day)</div>
+  <div class="seq-flow">
+    <div class="seq-block"><div class="seq-bar" style="background:#B45309;">WARM UP</div><div class="seq-min">5 min</div></div>
+    <div class="seq-arrow">›</div>
+    <div class="seq-block"><div class="seq-bar" style="background:#553C9A;">CORE</div><div class="seq-min">7 min</div></div>
+    <div class="seq-arrow">›</div>
+    <div class="seq-block"><div class="seq-bar" style="background:#1E40AF;">AGILITY</div><div class="seq-min">8 min</div></div>
+    <div class="seq-arrow">›</div>
+    <div class="seq-block"><div class="seq-bar" style="background:#991B1B;">POWER</div><div class="seq-min">7 min</div></div>
+    <div class="seq-arrow">›</div>
+    <div class="seq-block"><div class="seq-bar" style="background:#065F46;">COOL DOWN</div><div class="seq-min">5 min</div></div>
+  </div>
+</div>
+
+<div class="equipment-note">
+  <strong>Equipment needed:</strong> Flat court/gym floor · Agility ladder · Speed cones (6–8) · Resistance bands (light) · Medicine ball 2–3kg · Jump rope · Flat markers/tape
+</div>
+
+<div class="section-header" style="margin-top:4px;">
+  <div class="section-dot"></div>
+  <div class="section-title" id="phase-title">Phase 1 — Foundation (Weeks 1–4)</div>
+</div>
+
+<div class="week-tabs" id="week-tabs">
+  <div class="week-tab active" onclick="showWeek(1)">Wk 1</div>
+  <div class="week-tab" onclick="showWeek(2)">Wk 2</div>
+  <div class="week-tab" onclick="showWeek(3)">Wk 3</div>
+  <div class="week-tab" onclick="showWeek(4)">Wk 4</div>
+</div>
+
+<div class="progression-bar" id="prog-bar">
+  <div class="prog-seg done" id="pb1"></div>
+  <div class="prog-seg" id="pb2"></div>
+  <div class="prog-seg" id="pb3"></div>
+  <div class="prog-seg" id="pb4"></div>
+</div>
+
+<div id="week-content"></div>
+
+</div>
+</div>
+
+<div id="panel-science" class="panel">
+<div class="main">
+  <div style="margin-bottom:16px;margin-top:8px;">
+    <div class="section-header" style="margin-top:8px;"><div class="section-dot"></div><div class="section-title">Scientific Rationale</div></div>
+  </div>
+  
+  <div class="science-card">
+    <div class="science-card-title">🧠 Periodization Model</div>
+    <p>This plan uses <strong>linear periodization</strong> — Phase 1 (Wk 1–4) builds neuromuscular foundations at lower intensity; Phase 2 (Wk 5–8) increases volume and complexity. Youth athletes benefit from this structure as it allows the nervous system to adapt before adding load, reducing injury risk.</p>
+  </div>
+  
+  <div class="science-card">
+    <div class="science-card-title">🎯 Core Stability First</div>
+    <p>Research (McGill, 2010; NSCA Youth Guidelines) shows that a stable core is prerequisite for efficient force transfer during basketball movements — cutting, jumping, landing. Core work is placed early in each session when the CNS is fresh, maximizing motor learning quality.</p>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">⚡ Agility Before Power</div>
+    <p>Agility drills require high cognitive demand (change of direction + reaction). Placing them before power work (while athletes are mentally sharp but physically warmed) follows the <strong>Potentiation Principle</strong> — the pattern-learning from agility primes motor pathways for explosive power output.</p>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">💥 Plyometric Safety (Youth)</div>
+    <p>NSCA recommends youth plyometrics start with <strong>low volume (40–80 foot contacts/session)</strong> and emphasis on landing mechanics before progressing to reactive work. Phase 1 focuses on controlled jumps; Phase 2 adds bounding and reactive drills only after landing quality is established.</p>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">🔄 3×/Week Frequency</div>
+    <p>For youth athletes (10–17), ACSM recommends 3 resistance/athletic training sessions per week with 48h recovery between sessions. This plan inserts seamlessly into basketball training as a 25–30 min pre-practice block, so total session time stays manageable.</p>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">📈 Progressive Overload</div>
+    <p>Each week, either reps/sets increase OR rest periods shorten OR exercise complexity advances. Only ONE variable changes per week, following the <strong>SAID Principle</strong> (Specific Adaptation to Imposed Demands) while avoiding overtraining.</p>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=OWmchfeKNNY" target="_blank">Youth Athletic Training — Science of Development</a><p>NSCA Foundation · Periodization basics</p></div></div>
+  </div>
+</div>
+</div>
+
+<div id="panel-resources" class="panel">
+<div class="main">
+  <div class="section-header" style="margin-top:8px;"><div class="section-dot"></div><div class="section-title">Coaching Resources</div></div>
+  
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-icon">📋</div>
+      <div class="info-card-title">Rest Periods</div>
+      <p><strong>Core:</strong> 30–45s between sets<br><strong>Agility:</strong> Full recovery (45–60s)<br><strong>Power:</strong> 60–90s between sets</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🌡️</div>
+      <div class="info-card-title">RPE Target</div>
+      <p>Warm-up: 4–5/10<br>Core/Agility: 6–7/10<br>Power: 7–8/10<br>Cool-down: 3–4/10</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">⚠️</div>
+      <div class="info-card-title">Key Cues</div>
+      <p>Land soft (quiet feet). Neutral spine always. Never sacrifice form for speed.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">📏</div>
+      <div class="info-card-title">Progression Rule</div>
+      <p>Master technique at current level before advancing. Use a 2-week mastery window.</p>
+    </div>
+  </div>
+
+  <div class="section-header"><div class="section-dot"></div><div class="section-title">YouTube Reference Library</div></div>
+  
+  <div class="science-card">
+    <div class="science-card-title">🔥 Warm-Up & Mobility</div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=8KPpFEMO3-0" target="_blank">Dynamic Warm-Up for Basketball Players</a><p>Overtime Athletes · Full routine demo</p></div></div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=4McogZLlgEM" target="_blank">Hip Mobility & Activation for Athletes</a><p>Physical preparation · 7 min</p></div></div>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">🎯 Core Stability</div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=1f8yoFFdkcY" target="_blank">Plank Progressions — Beginner to Advanced</a><p>FitnessBlender · Form focus</p></div></div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=DcFmB-VRBZY" target="_blank">Dead Bug Exercise — Proper Form</a><p>Alan Thrall · Core stability tutorial</p></div></div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=3o4xMb-NLM0" target="_blank">Anti-Rotation Core Exercises for Athletes</a><p>Performance training</p></div></div>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">🔀 Agility & Ladder Drills</div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=v3HS0QmFXiY" target="_blank">Agility Ladder Drills for Basketball</a><p>ILoveBasketballTV · 10 essential drills</p></div></div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=MofKPSKBr2Y" target="_blank">Cone Drills — Speed & Change of Direction</a><p>Overtime Athletes · COD fundamentals</p></div></div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=gey73xiS8F4" target="_blank">T-Drill & 5-10-5 Shuttle Tutorial</a><p>Stack Media · Test + drill combo</p></div></div>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">💥 Power & Plyometrics</div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=5e3PbqJ6y8A" target="_blank">Box Jump Progressions for Youth Athletes</a><p>Athletic lab · Safe landing mechanics</p></div></div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=QR5CqVN1LYU" target="_blank">Broad Jump & Standing Long Jump Tutorial</a><p>STACK · Plyometric fundamentals</p></div></div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=8IRIMp4aFMI" target="_blank">Medicine Ball Exercises for Young Athletes</a><p>Sports Science Lab · Youth-appropriate</p></div></div>
+  </div>
+
+  <div class="science-card">
+    <div class="science-card-title">🧊 Cool-Down & Recovery</div>
+    <div class="yt-row"><span class="yt-icon">▶</span><div class="yt-info"><a href="https://www.youtube.com/watch?v=sTxC3J3gQEU" target="_blank">5-Minute Basketball Cool-Down Stretch</a><p>Overtime Athletes · Post-workout</p></div></div>
+  </div>
+
+  <div class="section-header"><div class="section-dot"></div><div class="section-title">Safety Guidelines</div></div>
+  <div class="science-card">
+    <p style="font-size:13px;color:var(--slate);line-height:1.7;">
+      ✅ Always complete full warm-up before power work<br>
+      ✅ Emphasize landing mechanics: soft knees, hips back, quiet feet<br>
+      ✅ Stop immediately if acute pain (not fatigue/burn) occurs<br>
+      ✅ Hydration: water break between each segment<br>
+      ✅ Adequate sleep (8–10h) is required for youth adaptation<br>
+      ✅ No max effort plyometrics on consecutive days<br>
+      ✅ Modify for players with known injury history
+    </p>
+  </div>
+</div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('plan',this)">📅 Plan</button>
+  <button class="tab-btn" onclick="switchTab('science',this)">🔬 Science</button>
+  <button class="tab-btn" onclick="switchTab('resources',this)">📚 Resources</button>
+</div>
+
+<script>
+const weekData = {
+  1: {
+    theme: "Movement Foundations",
+    phase: 1,
+    rationale: "🧠 Week 1 establishes motor patterns. Every rep is about technique, not speed. CNS adaptation begins in week 1 — quality over quantity.",
+    badge: "Low Volume · Technique Focus",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Jog + Side Shuffles", detail:"2 laps jog → 2×10m shuffle each side", sets:"2 rounds", link:"", linkLabel:"" },
+          { n:"Leg Swings (front/side)", detail:"Hip flexor mobility · 10 each direction", sets:"10 each", link:"", linkLabel:"" },
+          { n:"High Knees (slow)", detail:"Focus on posture · arms at 90°", sets:"2×15m", link:"", linkLabel:"" },
+          { n:"Arm Circles + Wrist Rolls", detail:"Shoulder prep", sets:"10 fwd/bk", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Dead Bug", detail:"Lower opposite arm+leg simultaneously · neutral spine · exhale on effort", sets:"2×8 reps", link:"https://www.youtube.com/watch?v=DcFmB-VRBZY", linkLabel:"Form demo" },
+          { n:"Plank Hold", detail:"Elbows under shoulders · squeeze glutes · flat back", sets:"2×20 sec", link:"https://www.youtube.com/watch?v=1f8yoFFdkcY", linkLabel:"Plank guide" },
+          { n:"Glute Bridge", detail:"Drive hips up, hold 2 sec at top · single-leg option if easy", sets:"2×10", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"Ladder — 2-Foot Run", detail:"Both feet in each rung · upright posture · arms pumping", sets:"4 passes", link:"https://www.youtube.com/watch?v=v3HS0QmFXiY", linkLabel:"Ladder drills" },
+          { n:"Cone Shuffle (5m×4)", detail:"Side shuffle between 4 cones spaced 5m · stay low", sets:"3 rounds", link:"", linkLabel:"" },
+          { n:"Reaction Start", detail:"Partner calls 'go' · sprint 5m from athletic stance", sets:"6 reps", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Squat Jump", detail:"Controlled descent → explosive jump · land soft (3-point: toe → heel → flat)", sets:"2×6", link:"https://www.youtube.com/watch?v=5e3PbqJ6y8A", linkLabel:"Landing mechanics" },
+          { n:"Standing Broad Jump", detail:"Two-foot takeoff · reach forward · stick landing 2 sec", sets:"2×4", link:"https://www.youtube.com/watch?v=QR5CqVN1LYU", linkLabel:"Broad jump form" },
+          { n:"Med Ball Chest Pass (wall)", detail:"Athletic stance · push through the ball · 2–3kg", sets:"2×6", link:"https://www.youtube.com/watch?v=8IRIMp4aFMI", linkLabel:"Med ball guide" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Hip Flexor Stretch", detail:"Lunge position · tall posture · hold 30s each side", sets:"1×30s", link:"", linkLabel:"" },
+          { n:"Seated Hamstring Stretch", detail:"Reach toward toes · hold without bouncing", sets:"1×30s", link:"", linkLabel:"" },
+          { n:"Child's Pose + Thread Needle", detail:"T-spine rotation and lat stretch", sets:"1×30s each", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Cool-down video" },
+          { n:"Slow Diaphragmatic Breathing", detail:"4 count in · 4 hold · 6 count out · parasympathetic reset", sets:"5 breaths", link:"", linkLabel:"" }
+        ]
+      }
+    ]
+  },
+  2: {
+    theme: "Pattern Reinforcement",
+    phase: 1,
+    rationale: "📈 Week 2: Add 1 set to core and power. Introduce unilateral movements (single-leg) to address asymmetries common in youth athletes.",
+    badge: "Moderate Volume · Add Unilateral",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Jog + Carioca", detail:"2 laps jog → 2×15m carioca · hip rotation emphasis", sets:"2 rounds", link:"", linkLabel:"" },
+          { n:"World's Greatest Stretch", detail:"Lunge + rotation · open the hip fully", sets:"5 each side", link:"", linkLabel:"" },
+          { n:"Lateral Band Walk", detail:"Light resistance band around ankles · 10 steps each way", sets:"2×10", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Dead Bug (arm only variation)", detail:"Extend opposite arm only · 4-sec lower · maintain lumbar flat", sets:"3×8", link:"https://www.youtube.com/watch?v=DcFmB-VRBZY", linkLabel:"Dead bug form" },
+          { n:"Plank + Shoulder Tap", detail:"Minimize hip rotation · squeeze core hard · alternate taps", sets:"3×8 taps", link:"https://www.youtube.com/watch?v=1f8yoFFdkcY", linkLabel:"Plank progression" },
+          { n:"Single-Leg Glute Bridge", detail:"Opposite leg straight up · drive through heel · 2s hold at top", sets:"2×8 each", link:"", linkLabel:"" },
+          { n:"Side Plank Hold", detail:"Hip stacked · elbow under shoulder · maintain straight line", sets:"2×15s each", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"Ladder — Icky Shuffle", detail:"In-in-out pattern · start slow · precision before speed", sets:"4 passes", link:"https://www.youtube.com/watch?v=v3HS0QmFXiY", linkLabel:"Ladder drills" },
+          { n:"T-Drill", detail:"Sprint 5m → shuffle 2.5m R → shuffle 5m L → shuffle 2.5m R → back-pedal 5m", sets:"4 reps", link:"https://www.youtube.com/watch?v=gey73xiS8F4", linkLabel:"T-Drill tutorial" },
+          { n:"Cone Weave Sprint", detail:"Set 6 cones 1m apart · weave at 70% effort", sets:"4 passes", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Box Jump (low, 8–12in)", detail:"Two-foot takeoff · land on toes → heel · step down (don't jump down)", sets:"3×5", link:"https://www.youtube.com/watch?v=5e3PbqJ6y8A", linkLabel:"Box jump form" },
+          { n:"Lateral Bound", detail:"Single-leg push → land opposite leg · stick 2s · absorb!", sets:"2×5 each", link:"", linkLabel:"" },
+          { n:"Med Ball Slam (overhead)", detail:"Raise overhead → slam floor hard · full body involvement", sets:"3×5", link:"https://www.youtube.com/watch?v=8IRIMp4aFMI", linkLabel:"Med ball guide" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Quad Stretch (standing)", detail:"Heel to glute · hold wall if needed · 30s each", sets:"1×30s", link:"", linkLabel:"" },
+          { n:"Pigeon Pose", detail:"Deep hip opener · excellent for basketball players", sets:"1×30s each", link:"", linkLabel:"" },
+          { n:"Thoracic Rotation (seated)", detail:"Hands behind head · rotate both ways", sets:"8 each way", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Cool-down video" }
+        ]
+      }
+    ]
+  },
+  3: {
+    theme: "Complexity & Load",
+    phase: 1,
+    rationale: "🔋 Week 3: Introduce combined movements. Supersets begin (core + agility circuit with minimal rest). Power reps increase slightly.",
+    badge: "Moderate-High · Superset Intro",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Jump Rope", detail:"2 min continuous · alternate single/double foot", sets:"2 min", link:"", linkLabel:"" },
+          { n:"Inchworm + Push-Up", detail:"Walk hands out to plank → 1 push-up → walk back", sets:"6 reps", link:"", linkLabel:"" },
+          { n:"Ankle Circles + Calf Raises", detail:"Prep for landing loads ahead", sets:"10+10", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Plank to Down-Dog", detail:"From plank: push hips up to pike → return · no hip sag", sets:"3×8", link:"https://www.youtube.com/watch?v=1f8yoFFdkcY", linkLabel:"Plank series" },
+          { n:"Bird Dog", detail:"Opposite arm+leg extend → pause → return SLOWLY · anti-rotation", sets:"3×8 each", link:"", linkLabel:"" },
+          { n:"Copenhagen Side Plank (modified)", detail:"Top foot on low bench · full side plank · builds adductor strength for cuts", sets:"2×10s each", link:"https://www.youtube.com/watch?v=3o4xMb-NLM0", linkLabel:"Anti-rotation core" },
+          { n:"Hollow Body Hold", detail:"Lower back pressed down · arms + legs off ground · hold", sets:"3×15s", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"Ladder — Lateral 2-in", detail:"Side-facing · two feet in each rung moving laterally", sets:"4 passes each dir", link:"https://www.youtube.com/watch?v=v3HS0QmFXiY", linkLabel:"Ladder drills" },
+          { n:"5-10-5 Shuttle", detail:"Start center · sprint 5m R → touch → sprint 10m L → touch → sprint 5m R", sets:"4 reps", link:"https://www.youtube.com/watch?v=gey73xiS8F4", linkLabel:"5-10-5 tutorial" },
+          { n:"Reaction Cone (coach-directed)", detail:"Coach points direction · athlete reacts and sprints to cone", sets:"8 reps", link:"https://www.youtube.com/watch?v=MofKPSKBr2Y", linkLabel:"COD drills" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Jump Squat × Stick Landing", detail:"Max effort jump → stick landing → hold 2s → repeat", sets:"3×5", link:"", linkLabel:"" },
+          { n:"Single-Leg Hop (forward)", detail:"Push off one leg · land same leg · absorb! Progress: 3 hops in a row", sets:"2×4 each", link:"", linkLabel:"" },
+          { n:"Med Ball Rotational Throw (wall)", detail:"Pivot from hip · rotate through core · throw side-on to wall", sets:"3×5 each side", link:"https://www.youtube.com/watch?v=8IRIMp4aFMI", linkLabel:"Med ball rotational" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Standing Figure-4 Stretch", detail:"Glute/piriformis · key for jump landing athletes", sets:"1×30s each", link:"", linkLabel:"" },
+          { n:"Band-Assisted Hamstring Stretch", detail:"Resistance band around foot · gentle pull", sets:"1×30s each", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Cool-down routine" },
+          { n:"Box Breathing", detail:"4 in · 4 hold · 4 out · 4 hold · nervous system recovery", sets:"6 rounds", link:"", linkLabel:"" }
+        ]
+      }
+    ]
+  },
+  4: {
+    theme: "Phase 1 Integration",
+    phase: 1,
+    rationale: "🎯 Week 4: Deload-ish testing week. Reduce volume by 20%, focus on quality. Optional fitness assessment: broad jump, plank hold time, T-drill time. Use results to calibrate Phase 2.",
+    badge: "Consolidation · Light Deload",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Dynamic Movement Circuit", detail:"High knees → butt kicks → skips → lateral shuffles · continuous flow", sets:"2 rounds", link:"https://www.youtube.com/watch?v=8KPpFEMO3-0", linkLabel:"Dynamic warm-up" },
+          { n:"Hip 90/90 Mobility", detail:"Seated hip rotation · key for lateral movement quality", sets:"8 each way", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Plank Circuit (3-way)", detail:"Forearm plank 20s → R side 20s → L side 20s → rest · no breaks between", sets:"2 rounds", link:"https://www.youtube.com/watch?v=1f8yoFFdkcY", linkLabel:"Plank circuit" },
+          { n:"Bird Dog (5s pause)", detail:"Maximize anti-rotation · pause at full extension", sets:"3×6 each", link:"", linkLabel:"" },
+          { n:"Stir the Pot (on ball) — optional", detail:"Forearms on medicine ball · small circles · advanced stability", sets:"2×8 each dir", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"Best Patterns Medley", detail:"Choose 3 best ladder patterns from wks 1–3 · perfection focus", sets:"6 total passes", link:"", linkLabel:"" },
+          { n:"T-Drill Time Trial", detail:"Record best time — baseline for Phase 2 tracking", sets:"3 timed reps", link:"https://www.youtube.com/watch?v=gey73xiS8F4", linkLabel:"T-Drill form" },
+          { n:"Mirror Drill (paired)", detail:"Partner leads movements · athlete shadows · basketball-specific reaction", sets:"3×15s rounds", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Broad Jump Distance Test", detail:"Record best of 3 · mark distance with tape", sets:"3 attempts", link:"https://www.youtube.com/watch?v=QR5CqVN1LYU", linkLabel:"Broad jump form" },
+          { n:"Box Jump (from wk 2 height)", detail:"Smooth and confident · no fear", sets:"2×5", link:"https://www.youtube.com/watch?v=5e3PbqJ6y8A", linkLabel:"Box jump review" },
+          { n:"Med Ball Complex", detail:"3 throws: chest pass → slam → rotational · rest · repeat", sets:"2 complexes", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Full Body Stretch Flow", detail:"Hamstrings → hip flexors → glutes → thoracic → shoulders", sets:"30s each", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Cool-down video" },
+          { n:"Reflection Circle", detail:"Team gathers · coach asks: what improved this month? · mental reset", sets:"2 min", link:"", linkLabel:"" }
+        ]
+      }
+    ]
+  },
+  5: {
+    theme: "Power Amplification",
+    phase: 2,
+    rationale: "🚀 Phase 2 begins. Foundation is built — now we increase intensity. Plyometric volume rises to 80–100 foot contacts. Agility becomes reactive (partner-driven, random cues).",
+    badge: "High Intensity · Reactive Agility",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Acceleration Sprints", detail:"Walk 5m → jog 5m → stride 5m → 80% sprint 10m → walk back", sets:"4 reps", link:"", linkLabel:"" },
+          { n:"Lateral Lunge + Reach", detail:"Deep lateral lunge · reach inside foot · thoracic rotation", sets:"8 each side", link:"", linkLabel:"" },
+          { n:"Ankle Pops / Mini Hops", detail:"Rapid tiny hops · warm up achilles/calf", sets:"2×15", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Plank with Band Pull-Through", detail:"Band at side · pull through under body → opposite hand · resist rotation", sets:"3×8 each", link:"https://www.youtube.com/watch?v=3o4xMb-NLM0", linkLabel:"Anti-rotation core" },
+          { n:"RKC Plank", detail:"Squeeze EVERYTHING (fists, abs, glutes) · shorter hold but maximal tension", sets:"3×10s", link:"", linkLabel:"" },
+          { n:"Pallof Press (band)", detail:"Band at chest height · press out → hold → return · anti-rotation", sets:"3×8 each side", link:"", linkLabel:"" },
+          { n:"V-Sit Hold", detail:"Sit on tailbone · legs + torso off floor · L shape · hold", sets:"3×15s", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"Ladder — Hop Scotch + Sprint Out", detail:"Complete pattern → explode sprint 5m out of last rung", sets:"5 passes", link:"https://www.youtube.com/watch?v=v3HS0QmFXiY", linkLabel:"Ladder + sprint" },
+          { n:"Random Cone Reaction", detail:"Coach stands at center cone · points random cone · athlete sprints → touch → return", sets:"8 reps", link:"https://www.youtube.com/watch?v=MofKPSKBr2Y", linkLabel:"COD reactive drills" },
+          { n:"Defensive Shuffle + Close-Out", detail:"Shuffle defensively 5m → close-out sprint to cone (simulates game situation)", sets:"5 each dir", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Depth Jump (step off 8–12in box)", detail:"Step off → land → IMMEDIATELY jump up · minimize ground contact time", sets:"3×4", link:"https://www.youtube.com/watch?v=5e3PbqJ6y8A", linkLabel:"Depth jump form" },
+          { n:"Bounding (3-bound sequence)", detail:"Right-right-right or R-L-R alternating · triple extension emphasis", sets:"3×4 sequences", link:"", linkLabel:"" },
+          { n:"Med Ball Overhead Throw (for distance)", detail:"Explosive total body hip extension · track distance progress", sets:"3×4", link:"https://www.youtube.com/watch?v=8IRIMp4aFMI", linkLabel:"MB explosive throw" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Prone Hip Flexor Stretch", detail:"Lying down variant · deeper than standing", sets:"1×30s", link:"", linkLabel:"" },
+          { n:"Seated Spinal Twist", detail:"Cross-leg rotation · decompress spine post-impact work", sets:"1×30s each", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Cool-down" },
+          { n:"Slow 4-7-8 Breathing", detail:"4 in · 7 hold · 8 out · activates parasympathetic recovery", sets:"5 rounds", link:"", linkLabel:"" }
+        ]
+      }
+    ]
+  },
+  6: {
+    theme: "Basketball Power Specificity",
+    phase: 2,
+    rationale: "🏀 Week 6 links fitness to basketball. All agility drills use basketball movements (defensive stance, plant-and-go, close-outs). Power = vertical & rotational (rebounding, finishing angles).",
+    badge: "Sport-Specific Transfer",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Ball-Handling Movement Warm-Up", detail:"Dribble while performing: high knees, shuffles, back-pedal · low dribble", sets:"3 min", link:"", linkLabel:"" },
+          { n:"Defensive Footwork Drill", detail:"Zig-zag defensive shuffle across court · low hips", sets:"4 lengths", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Anti-Rotation Chop (band)", detail:"Band overhead diagonal → chop across body → resist return", sets:"3×8 each side", link:"https://www.youtube.com/watch?v=3o4xMb-NLM0", linkLabel:"Anti-rotation work" },
+          { n:"Plank to Push-Up (3-way)", detail:"Down-up × 4 → move to R side plank → return → L side · full circuit", sets:"3 rounds", link:"", linkLabel:"" },
+          { n:"Copenhagen Plank (full)", detail:"Full foot on bench · hold side plank · builds adductors for lateral cuts", sets:"3×15s each", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"Jab Step → Drive Reaction", detail:"Start in triple-threat position · jab step → react to call: 'left/right' → drive cone", sets:"8 reps", link:"", linkLabel:"" },
+          { n:"Full-Court Defensive Zigzag", detail:"Continuous defensive shuffle full court · change at each hash mark", sets:"4 lengths", link:"https://www.youtube.com/watch?v=MofKPSKBr2Y", linkLabel:"Defensive footwork" },
+          { n:"Closeout to Contest Sprint", detail:"Start 5m from cone · sprint → quick stop → hands up · STICK the decel", sets:"6 reps", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Two-Foot Vertical Jump (max)", detail:"Max effort each rep · track height progress with wall touch", sets:"3×5", link:"https://www.youtube.com/watch?v=5e3PbqJ6y8A", linkLabel:"Vertical jump form" },
+          { n:"One-Step Approach Jump", detail:"Simulate lay-up approach · one-step takeoff → max vertical", sets:"3×4 each side", link:"", linkLabel:"" },
+          { n:"Med Ball Pivot + Chest Pass", detail:"Pivot off one foot (ball-handling footwork) → explosive pass", sets:"3×6 each pivot", link:"https://www.youtube.com/watch?v=8IRIMp4aFMI", linkLabel:"Med ball specificity" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Butterfly + Forward Fold", detail:"Groin and inner thigh · high usage from lateral cuts today", sets:"1×30s", link:"", linkLabel:"" },
+          { n:"Calf + Achilles Stretch (wall)", detail:"Straight and bent knee variants · protect for jumping load", sets:"1×30s each", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Cool-down" },
+          { n:"Mental Rehearsal (eyes closed)", detail:"30s: visualize two elite basketball movements · builds motor imagery", sets:"1×30s", link:"", linkLabel:"" }
+        ]
+      }
+    ]
+  },
+  7: {
+    theme: "Peak Volume",
+    phase: 2,
+    rationale: "📊 Week 7 is the highest volume week. Athletes should feel challenged but capable. This is where the greatest adaptation stimulus occurs. Full rest between power sets.",
+    badge: "Peak Load · Maximum Stimulus",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Rope Jump Complex", detail:"30s single bounce → 15s double unders attempt → 15s single → rest", sets:"2 rounds", link:"", linkLabel:"" },
+          { n:"Hip Flexor + T-Spine Flow", detail:"Moving lunge → rotate → hip circle · fluid sequence", sets:"6 each side", link:"https://www.youtube.com/watch?v=4McogZLlgEM", linkLabel:"Hip + T-spine mobility" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Dead Bug Progression (all limbs)", detail:"Full extension both sides · 5s eccentric lower · zero lower back arch", sets:"4×6", link:"https://www.youtube.com/watch?v=DcFmB-VRBZY", linkLabel:"Dead bug advanced" },
+          { n:"Plank Complex Circuit", detail:"Forearm → side R → side L → reverse plank · 20s each no break", sets:"3 full circuits", link:"", linkLabel:"" },
+          { n:"Pallof Press + Overhead", detail:"Pallof press → extend arms overhead → return → retract · 4-part move", sets:"3×6 each side", link:"https://www.youtube.com/watch?v=3o4xMb-NLM0", linkLabel:"Advanced Pallof" },
+          { n:"Single-Leg Romanian DL (bodyweight)", detail:"Hip hinge on one leg · flat back · touch opposite hand to standing foot", sets:"3×8 each", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"Full Speed Ladder Medley", detail:"Best 4 patterns back-to-back · full speed · minimal rest between", sets:"3 full medleys", link:"https://www.youtube.com/watch?v=v3HS0QmFXiY", linkLabel:"Ladder medley" },
+          { n:"Chase / Evasion Drill (pairs)", detail:"One athlete leads, one follows within 3m grid · simulates on-ball defense", sets:"4×10s rounds", link:"", linkLabel:"" },
+          { n:"5-10-5 Time Trial", detail:"Record time — compare to wk 3 baseline", sets:"3 timed runs", link:"https://www.youtube.com/watch?v=gey73xiS8F4", linkLabel:"5-10-5 reference" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Depth Jump to Broad Jump", detail:"Step off box → land → immediately broad jump max distance · complex combo", sets:"3×3", link:"https://www.youtube.com/watch?v=5e3PbqJ6y8A", linkLabel:"Complex jump form" },
+          { n:"Lateral Bounding (continuous)", detail:"Push R → land L → push L → land R · 4 bounds = 1 rep · arms punch!", sets:"3×4 bounds", link:"", linkLabel:"" },
+          { n:"MB Scoop Toss (between legs)", detail:"Hinge at hips → swing ball back → explosively drive hips → scoop toss forward", sets:"3×5", link:"https://www.youtube.com/watch?v=8IRIMp4aFMI", linkLabel:"MB scoop toss" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Full-Body Foam Roll Flow", detail:"Thoracic spine → glutes → IT band → calf · 30s each zone", sets:"30s each", link:"", linkLabel:"" },
+          { n:"90/90 Hip Stretch", detail:"Both hips in 90° angle · deepest hip stretch for lateral athletes", sets:"1×30s each", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Cool-down video" },
+          { n:"Team Debrief", detail:"What was hardest? What felt most improved? Builds team culture.", sets:"2 min", link:"", linkLabel:"" }
+        ]
+      }
+    ]
+  },
+  8: {
+    theme: "Test & Celebrate",
+    phase: 2,
+    rationale: "🏆 Week 8: Taper week. Reduce volume 30% from week 7. Conduct fitness re-tests vs Week 4 benchmarks. Celebrate improvements. Transition brief — maintain over in-season.",
+    badge: "Taper · Assessment · Transition",
+    segments: [
+      {
+        label: "Warm-Up", tag: "seg-warm", time: "5 min",
+        exercises: [
+          { n:"Movement Celebration Warm-Up", detail:"Team-chosen favorite warm-up exercises · high energy · music recommended", sets:"5 min", link:"https://www.youtube.com/watch?v=8KPpFEMO3-0", linkLabel:"Dynamic warm-up" }
+        ]
+      },
+      {
+        label: "Core Stability", tag: "seg-core", time: "7 min",
+        exercises: [
+          { n:"Plank Hold — Max Time Test", detail:"Record personal best · compare to week 1 (likely 20s → 60s+ improvement)", sets:"1 max hold", link:"", linkLabel:"" },
+          { n:"Best Core Circuit (team vote)", detail:"Vote on 3 favorite core exercises from the 8 weeks · perform with pride", sets:"2 rounds", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Agility", tag: "seg-agility", time: "8 min",
+        exercises: [
+          { n:"T-Drill Time Trial (final)", detail:"Compare to Week 4 baseline · celebrate improvements", sets:"3 timed reps", link:"https://www.youtube.com/watch?v=gey73xiS8F4", linkLabel:"T-Drill reference" },
+          { n:"5-10-5 Final Time", detail:"Compare to Week 7 · track team average improvement", sets:"3 timed reps", link:"", linkLabel:"" },
+          { n:"Free Agility Play (5 min)", detail:"Mini-game: 2-on-2 reaction tag in small grid · celebrate athleticism", sets:"5 min game", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Power", tag: "seg-power", time: "7 min",
+        exercises: [
+          { n:"Broad Jump Final Test", detail:"Compare to Week 4 distance · mark on floor with names", sets:"3 attempts best", link:"https://www.youtube.com/watch?v=QR5CqVN1LYU", linkLabel:"Broad jump" },
+          { n:"Vertical Jump Test", detail:"Wall touch method · compare to week 6 tracking", sets:"3 attempts", link:"", linkLabel:"" },
+          { n:"Power Showcase — Team Choice", detail:"Each player demos their most improved power movement for teammates", sets:"1 each", link:"", linkLabel:"" }
+        ]
+      },
+      {
+        label: "Cool-Down", tag: "seg-cool", time: "5 min",
+        exercises: [
+          { n:"Full Stretch Circuit", detail:"All major muscle groups · coaches lead · relaxed pace", sets:"30s each", link:"https://www.youtube.com/watch?v=sTxC3J3gQEU", linkLabel:"Full cool-down" },
+          { n:"8-Week Reflection Circle", detail:"What did you learn about your body? What will you carry into the season?", sets:"5 min", link:"", linkLabel:"" }
+        ]
+      }
+    ]
+  }
+};
+
+let currentWeek = 1;
+let currentPhase = 1;
+
+function showPhase(phase) {
+  currentPhase = phase;
+  document.querySelectorAll('.phase-pill').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.phase-pill')[phase-1].classList.add('active');
+  
+  const isP2 = phase === 2;
+  document.getElementById('phase-title').textContent = isP2 
+    ? 'Phase 2 — Development (Weeks 5–8)'
+    : 'Phase 1 — Foundation (Weeks 1–4)';
+  
+  const tabs = document.getElementById('week-tabs');
+  const weeks = isP2 ? [5,6,7,8] : [1,2,3,4];
+  tabs.innerHTML = '';
+  weeks.forEach((w, i) => {
+    const t = document.createElement('div');
+    t.className = 'week-tab' + (isP2 ? ' phase2' : '');
+    t.textContent = 'Wk ' + w;
+    t.onclick = () => showWeek(w);
+    if (i === 0) t.classList.add('active');
+    tabs.appendChild(t);
+  });
+  
+  showWeek(weeks[0]);
+}
+
+function showWeek(w) {
+  currentWeek = w;
+  const data = weekData[w];
+  const isP2 = data.phase === 2;
+  
+  document.querySelectorAll('.week-tab').forEach(t => t.classList.remove('active'));
+  const tabs = document.querySelectorAll('.week-tab');
+  const weeks = isP2 ? [5,6,7,8] : [1,2,3,4];
+  const idx = weeks.indexOf(w);
+  if (tabs[idx]) tabs[idx].classList.add('active');
+  
+  // Update progress bar
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('pb' + i);
+    if (el) {
+      el.className = 'prog-seg' + (i <= idx+1 ? ' done' : '') + (isP2 && i <= idx+1 ? ' green' : '');
+    }
+  }
+  
+  let html = `
+    <div class="week-card">
+      <div class="week-card-header">
+        <div style="display:flex;align-items:center">
+          <div class="week-num">W${w}</div>
+          <div class="week-theme">${data.theme}</div>
+        </div>
+        <div class="week-badge${isP2 ? ' green' : ''}">${data.badge}</div>
+      </div>
+      <div class="rationale${isP2 ? ' green' : ''}">${data.rationale}</div>
+  `;
+  
+  data.segments.forEach(seg => {
+    html += `
+      <div class="segment">
+        <div class="segment-label">
+          <span class="seg-tag ${seg.tag}">${seg.label}</span>
+          <span class="seg-time">${seg.time}</span>
+        </div>
+        <div class="exercise-list">
+    `;
+    seg.exercises.forEach((ex, i) => {
+      html += `
+        <div class="exercise-item">
+          <div class="ex-num">${i+1}</div>
+          <div class="ex-body">
+            <div class="ex-name">${ex.n}</div>
+            <div class="ex-detail">${ex.detail}</div>
+            ${ex.link ? `<a href="${ex.link}" target="_blank" class="ex-link">▶ ${ex.linkLabel}</a>` : ''}
+          </div>
+          <div class="ex-sets">${ex.sets}</div>
+        </div>
+      `;
+    });
+    html += `</div></div>`;
+  });
+  
+  html += `</div>`;
+  document.getElementById('week-content').innerHTML = html;
+}
+
+function switchTab(panel, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + panel).classList.add('active');
+  btn.classList.add('active');
+}
+
+showWeek(1);
+</script>
+</body>
+</html>
